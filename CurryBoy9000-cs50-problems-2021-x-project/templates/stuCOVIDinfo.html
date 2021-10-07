@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Student Information
+{% endblock %}
+
+{% block main %}
+    <body class="color">
+        <div class="container">
+            <div class="jumbotron text-center bgimg">
+                <form action="/submitStuCOVIDinfo" method="get">
+                    {% for row in rows %}
+                        <h2>{{row.First_Name}} {{row.Last_Name}}'s Covid Form</h2>
+                    {% endfor %}
+                    
+                    <label for="StuID">Student ID:</label>
+                    {% for row in rows %}
+                        <input type="text" id="StuID" name="StuID" value="{{row.StuID}}" readonly><br>
+                    {% endfor %}
+                
+                    <label for="fname">First Name:</label>
+                    {% for row in rows %}
+                        <input type="text" id="First_Name" name="First_Name" value="{{row.First_Name}}" readonly><br>
+                    {% endfor %}
+        
+                    <label for="lname">Last Name:</label>
+                    {% for row in rows %}
+                        <input type="text" id="Last_Name" name="Last_Name" value="{{row.Last_Name}}" readonly><br>
+                    {% endfor %}
+        
+                    <label for="Test">Test:</label>
+                    <select id="Test" name="Test">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select><br>
+        
+                    <label for="subject">Date of Test:</label>
+                    <input type="text" id="Date" name="Date_of_Test" placeholder="Date"><br>
+                    
+                    <label for="Test_Result">Test Result:</label>
+                    <select id="Test_Result" name="Test_Result">
+                        <option value="N/A">N/A</option>
+                        <option value="Negative">Negative</option>
+                        <option value="Positive">Positive</option>
+                    </select><br>
+                    
+                    <label for="Quarantine">Quarantine:</label>
+                    <select id="Quarantine" name="Quarantine">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select><br>
+                
+                    <label for="subject">Quarantine Start Date:</label>
+                    <input type="text" id="Quarabtine_Start_Date" name="Quarantine_Start_Date" placeholder="Date"><br>
+                    
+                    <label for="subject">Quarantine End Date:</label>
+                    <input type="text" id="Quarantine_End_Date" name="Quarantine_End_Date" placeholder="Date"><br>
+                    
+                    <label for="Parents_Notified">Parents Notified:</label>
+                    <select id="Parents_Notified" name="Parents_Notified">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select><br>
+            
+                    <div class="form-group">
+                        {% for row in rows%}
+                            <button type="submit" id="submit">Submit</button>
+                        {% endfor %}
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}

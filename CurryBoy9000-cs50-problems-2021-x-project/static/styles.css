@@ -1,0 +1,43 @@
+.background
+{
+    background: url("DSC_0467.JPG");
+    background-size: auto;
+}
+
+main .form-control
+{
+    display: block;
+    width: auto;
+}
+
+.navbar-nav ml-auto mt-2
+{
+    text-align: left;
+}
+
+main
+{
+    margin-left: auto;
+    
+}
+
+.color
+{
+    background-color: maroon;
+}
+
+.white
+{
+    color: white;
+}
+
+.cat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+

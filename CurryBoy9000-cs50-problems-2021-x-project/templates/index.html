@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {% if session.user_id %}
+        <body class="background">
+            <div class="container pt-5">
+                <div class="jumbotron text-center bgimg">
+                    <h2 class = "title">Middlesex Covid Tracker</h2>
+                    <div class="form-group">
+                        <input type="button" onclick="location.href='/stuinfo';" value="Student" />
+                        <input type="button" onclick="location.href='/facinfo';" value="Faculty" />
+                    </div>
+                </div>
+            </div>
+        </body>
+    {% endif %}
+{% endblock %}

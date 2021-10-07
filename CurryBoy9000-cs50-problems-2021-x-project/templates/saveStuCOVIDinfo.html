@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Student Information
+{% endblock %}
+
+{% block main %}
+    <body class="color">
+        <form action="/submitStuCOVIDinfo">
+            <table class="table table-bordered table-light table-sm" id="myTable">
+                <thead>
+                    <tr>
+                        <th>StuID</th>
+                        <th>Test</th>
+                        <th>Date of Test</th>
+                        <th>Test Result</th>
+                        <th>Quarantine</th>
+                        <th>Quarantine Start Date</th>
+                        <th>Quarantine End Date</th>
+                        <th>Parents Notified</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    {% for swor in swors %}
+                        <tr>
+                            <td>{{ swor.StuID }}</td>
+                            <td>{{ swor.Test }}</td>
+                            <td>{{ swor.Date_of_Test }}</td>
+                            <td>{{ swor.Test_Result }}</td>
+                            <td>{{ swor.Quarantine }}</td>
+                            <td>{{ swor.Quarantine_Start_Date }}</td>
+                            <td>{{ swor.Quarantine_End_Date }}</td>
+                            <td>{{ swor.Parents_Notified }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </body>
+{% endblock %}
+    

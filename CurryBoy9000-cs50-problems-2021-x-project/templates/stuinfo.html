@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Student Information
+{% endblock %}
+
+{% block main %}
+    <body class="color">
+        <div class="d-block w-auto">
+            <form action="/stuinfo" method="post">
+                <label for="Gender" class="white">Gender:</label>
+                <select name="Gender" id="Gender">
+                    <option value=""></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+    
+                <label for="Grade" class="white">Grade:</label>
+                <select name="Grade" id="Grade">
+                    <option value=""></option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+    
+                <label for="Student Type" class="white">Student Type:</label>
+                <select name="Student_Type" id="Student_Type">
+                    <option value=""></option>
+                    <option value="Day">Day</option>
+                    <option value="Boarding">Boarding</option>
+                </select>
+    
+                <label for="Student Selection" class="white">Student Selection:</label>
+                <select name="Student_Selection" id="Student_Selection">
+                    <option value=""></option>
+                    <option value="Full-Online">Full-Online</option>
+                    <option value="On-Campus">On-Campus</option>
+                </select>
+            
+                <label for="Group" class="white">Student Group:</label>
+                <select name="Student_Group" id="Student_Group">
+                    <option value=""></option>
+                    <option value="Group M">Group M</option>
+                    <option value="Group X">Group X</option>
+                </select>
+    
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit" onclick="stuinfo()">Search</button>
+                    <button class="btn btn-primary" type="submit" onclick="clearStuInfo()">Clear</button>
+                </div>
+            
+                <table class="table table-bordered table-light table-sm" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>StuID</th>
+                            <th>First</th>
+                            <th>Last</th>
+                            <th>Gender</th>
+                            <th>Grade</th>
+                            <th>Student_Type</th>
+                            <th>Student_Selection</th>
+                            <th>Student_Group</th>
+                            <th>Email</th>
+                            <th>Phone_Number</th>
+                            <th>Emergency_Contact</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        {% for row in rows %}
+                            <tr>
+                                <td><input type="button" onclick="location.href='/stuCOVIDinfo/{{row.StuID}}';" value="{{ row.StuID }}"/></td>
+                                <td>{{ row.First_Name }}</td>
+                                <td>{{ row.Last_Name }}</td>
+                                <td>{{ row.Gender }}</td>
+                                <td>{{ row.Grade }}</td>
+                                <td>{{ row.Student_Type }}</td>
+                                <td>{{ row.Student_Selection }}</td>
+                                <td>{{ row.Student_Group }}</td>
+                                <td>{{ row.Email }}</td>
+                                <td>{{ row.Phone_Number }}</td>
+                                <td>{{ row.Emergency_Phone_Number}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </body>
+{% endblock %}

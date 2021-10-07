@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Faculty Information
+{% endblock %}
+
+{% block main %}
+    <body class="color">
+        <form action="/facinfo" method="post">
+            <label for="Gender" class="white">Gender:</label>
+            <select name="Gender" id="Gender">
+                <option value=""></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+    
+            <label for="Department" class="white">Department:</label>
+            <select name="Department" id="Department">
+                <option value=""></option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+                <option value="Language">Language</option>
+                <option value="English">English</option>
+                <option value="Art">Art</option>
+                <option value="Music">Music</option>
+                <option value="Computer science">Computer Science</option>
+                <option value="Admissions">Admissions</option>
+                <option value="Custodian">Custodian</option>
+                <option value="Dean">Dean</option>
+                <option value="Flik server">Flik Server</option>
+                <option value="Head of school">Head of School</option>
+            </select>
+    
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" onclick="facinfo():">Search</button>
+                <button class="btn btn-primary" type="submit" onclick="clearFacInfo():">Clear</button>
+            </div>
+            
+            <table class="table table-bordered table-light table-sm">
+                <thead>
+                    <tr>
+                        <th>FacID</th>
+                        <th>First</th>
+                        <th>Last</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            <td><input type="button" onclick="location.href='/facCOVIDinfo/{{row.FacID}}';" value="{{ row.FacID }}"/></td>
+                            <td>{{ row.First_Name }}</td>
+                            <td>{{ row.Last_Name }}</td>
+                            <td>{{ row.Gender }}</td>
+                            <td>{{ row.Department }}</td>
+                            <td>{{ row.Email }}</td>
+                            <td>{{ row.Phone_Number }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </table>
+{% endblock %}
